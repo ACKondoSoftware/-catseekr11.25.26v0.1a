@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CatSeek Build — Vibe Development</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    background: #030711;
+    color: #e5f1ff;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background-image:
+        radial-gradient(ellipse at top, #102c60, transparent 65%);
+}
+.ad {
+    width: min(960px, 95vw);
+    padding: 45px 20px;
+    text-align: center;
+}
+.cat {
+    font: bold 24px/1.2 monospace;
+    color: #48aaff;
+    white-space: pre;
+    text-shadow: 0 0 25px #168aff;
+    animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+    50% { transform: translateY(-8px); }
+}
+.brand {
+    color: #58afff;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+h1 {
+    font-size: clamp(40px, 7vw, 76px);
+    letter-spacing: -2px;
+    margin: 25px 0;
+}
+.accent {
+    color: #49aaff;
+    text-shadow: 0 0 35px #168aff66;
+}
+p {
+    color: #91a9c5;
+    font-size: 18px;
+    line-height: 1.6;
+}
+.features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 25px 0;
+}
+.features span {
+    border: 1px solid #24558b;
+    border-radius: 30px;
+    padding: 10px 18px;
+    color: #7dc2ff;
+    font-size: 13px;
+    background: #09172a;
+}
+.terminal {
+    max-width: 700px;
+    margin: 30px auto;
+    background: #02050b;
+    border: 1px solid #2469b0;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 0 45px #006eff22;
+}
+.bar {
+    background: #0b1729;
+    padding: 14px 18px;
+    color: #70b8ff;
+    font: 13px monospace;
+    border-bottom: 1px solid #24558b;
+}
+.output {
+    padding: 24px;
+    min-height: 260px;
+    font: 14px/1.9 monospace;
+    color: #49aaff;
+    white-space: pre-wrap;
+}
+.cursor {
+    animation: blink .8s infinite;
+}
+@keyframes blink {
+    50% { opacity: 0; }
+}
+button {
+    background: #168aff;
+    color: white;
+    border: 0;
+    border-radius: 8px;
+    padding: 16px 35px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 25px #168aff44;
+    transition: .2s;
+}
+button:hover {
+    background: #50aaff;
+    transform: translateY(-3px);
+}
+footer {
+    margin-top: 30px;
+    color: #55708e;
+    font-size: 12px;
+    line-height: 1.8;
+}
+</style>
+</head>
+<body>
+
+<main class="ad">
+
+<div class="cat"> /\_/\
+( o.o )
+ > ^ <</div>
+
+<div class="brand">CATSEEK BUILD</div>
+
+<h1>
+    The more you vibe,<br>
+    <span class="accent">the more you code.</span>
+</h1>
+
+<p>
+    From imagination to implementation.<br>
+    A new vision for AI-assisted software development.
+</p>
+
+<div class="features">
+    <span>BITNET INSPIRED</span>
+    <span>LOCAL AI</span>
+    <span>CATSDK</span>
+    <span>VIBE DEVELOPMENT</span>
+</div>
+
+<div class="terminal">
+    <div class="bar">
+        ● CATSEEK BUILD — TERMINAL DEMO
+    </div>
+    <div class="output"><span id="typing"></span><span class="cursor">█</span></div>
+</div>
+
+<button onclick="startDemo()">Experience CatSeek Build</button>
+
+<p>Imagine. Generate. Test. Build.</p>
+
+<footer>
+    CATSEEK BUILD<br>
+    BITNET IS THE WAY.<br>
+    © AC Kondo 1999–2026<br>
+    Illustrative product demonstration
+</footer>
+
+</main>
+
+<script>
+const demo = `$ catseek build
+
+[CatSeek] Meow! Welcome, developer.
+
+> Create a retro arcade game in Python.
+
+[BUILD] Analyzing project requirements...
+[BUILD] Designing game engine...
+[BUILD] Generating procedural graphics...
+[BUILD] Creating chiptune audio...
+[BUILD] Targeting 60 FPS...
+[BUILD] Preparing validation tests...
+
+Your imagination is the starting point.
+
+YAN YAN! Happy coding!`;
+
+let timer;
+let i = 0;
+const target = document.getElementById("typing");
+
+function startDemo() {
+    clearTimeout(timer);
+    target.textContent = "";
+    i = 0;
+    type();
+}
+
+function type() {
+    if (i < demo.length) {
+        target.textContent += demo.charAt(i++);
+        timer = setTimeout(type, 22);
+    }
+}
+
+startDemo();
+</script>
+
+</body>
+</html>
